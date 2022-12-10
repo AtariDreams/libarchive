@@ -41,7 +41,7 @@ group_lookup(void *d, const char *name, int64_t g)
 	(void)g; /* UNUSED */
 
 	assertEqualInt(*mp, 0x13579);
-	if (strcmp(name, "FOOGROUP"))
+	if (strcmp(name, "FOOGROUP") != 0)
 		return (1);
 	return (73);
 }

@@ -1610,7 +1610,7 @@ read_header(struct archive_read *a, struct archive_entry *entry,
       fn_sconv = rar->sconv_utf16be;
 
       strp = filename;
-      while (memcmp(strp, "\x00\x00", 2))
+      while (memcmp(strp, "\x00\x00", 2) != 0)
       {
         if (!memcmp(strp, "\x00\\", 2))
           *(strp + 1) = '/';

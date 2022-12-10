@@ -93,7 +93,7 @@ lrzip_bidder_bid(struct archive_read_filter_bidder *self,
 	if (p == NULL || avail == 0)
 		return (0);
 
-	if (memcmp(p, LRZIP_HEADER_MAGIC, LRZIP_HEADER_MAGIC_LEN))
+	if (memcmp(p, LRZIP_HEADER_MAGIC, LRZIP_HEADER_MAGIC_LEN) != 0)
 		return (0);
 
 	/* current major version is always 0, verify this */

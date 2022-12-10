@@ -143,7 +143,7 @@ lzop_bidder_bid(struct archive_read_filter_bidder *self,
 	if (p == NULL || avail == 0)
 		return (0);
 
-	if (memcmp(p, LZOP_HEADER_MAGIC, LZOP_HEADER_MAGIC_LEN))
+	if (memcmp(p, LZOP_HEADER_MAGIC, LZOP_HEADER_MAGIC_LEN) != 0)
 		return (0);
 
 	return (LZOP_HEADER_MAGIC_LEN * 8);

@@ -106,7 +106,7 @@ archive_read_set_format(struct archive *_a, int code)
     if (!a->format->name || !strcmp(a->format->name, str))
       break;
   }
-  if (!a->format->name || strcmp(a->format->name, str))
+  if (!a->format->name || strcmp(a->format->name, str) != 0)
   {
     archive_set_error(&a->archive, ARCHIVE_ERRNO_PROGRAMMER,
         "Internal error: Unable to set format");

@@ -91,7 +91,7 @@ grzip_bidder_bid(struct archive_read_filter_bidder *self,
 	if (p == NULL || avail == 0)
 		return (0);
 
-	if (memcmp(p, grzip_magic, sizeof(grzip_magic)))
+	if (memcmp(p, grzip_magic, sizeof(grzip_magic)) != 0)
 		return (0);
 
 	return (sizeof(grzip_magic) * 8);

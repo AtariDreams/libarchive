@@ -117,7 +117,7 @@ archive_read_append_filter(struct archive *_a, int code)
       if (!bidder->name || !strcmp(bidder->name, str))
         break;
     }
-    if (!bidder->name || strcmp(bidder->name, str))
+    if (!bidder->name || strcmp(bidder->name, str) != 0)
     {
       archive_set_error(&a->archive, ARCHIVE_ERRNO_PROGRAMMER,
           "Internal error: Unable to append filter");
