@@ -475,8 +475,8 @@ static void cdeque_free(struct cdeque* d) {
 	free(d->arr);
 
 	d->arr = NULL;
-	d->beg_pos = -1;
-	d->end_pos = -1;
+	d->beg_pos = USHRT_MAX;
+	d->end_pos = USHRT_MAX;
 	d->cap_mask = 0;
 }
 

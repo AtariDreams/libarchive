@@ -3048,13 +3048,13 @@ archive_string_normalize_C(struct archive_string *as, const void *_p,
 			 * We have to combine Hangul characters according to
 			 * http://uniicode.org/reports/tr15/#Hangul
 			 */
-			if (0 <= (LIndex = uc - HC_LBASE) &&
+			if (0 <= (LIndex = (int)uc - HC_LBASE) &&
 			    LIndex < HC_LCOUNT) {
 				/*
 				 * Hangul Composition.
 				 * 1. Two current code points are L and V.
 				 */
-				int VIndex = uc2 - HC_VBASE;
+				int VIndex = (int)uc2 - HC_VBASE;
 				if (0 <= VIndex && VIndex < HC_VCOUNT) {
 					/* Make syllable of form LV. */
 					UPDATE_UC(HC_SBASE +
@@ -3065,13 +3065,13 @@ archive_string_normalize_C(struct archive_string *as, const void *_p,
 					REPLACE_UC_WITH_UC2();
 				}
 				continue;
-			} else if (0 <= (SIndex = uc - HC_SBASE) &&
+			} else if (0 <= (SIndex = (int)uc - HC_SBASE) &&
 			    SIndex < HC_SCOUNT && (SIndex % HC_TCOUNT) == 0) {
 				/*
 				 * Hangul Composition.
 				 * 2. Two current code points are LV and T.
 				 */
-				int TIndex = uc2 - HC_TBASE;
+				int TIndex = (int)uc2 - HC_TBASE;
 				if (0 < TIndex && TIndex < HC_TCOUNT) {
 					/* Make syllable of form LVT. */
 					UPDATE_UC(uc + TIndex);
